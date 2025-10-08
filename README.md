@@ -27,17 +27,17 @@ A python-based API health monitoring tool that checks endpoint availability, tra
 
 ## Project Structure
 
-api-health-monitor/
-monitor.py              # Main entry point
-config.py               # Configuration settings
-requirements.txt        # Python dependencies
-src/
-    checker.py         # API health check logic
-    storage.py         # Result persistence
-    utils.py           # Display and formatting utilities
-       alerting.py        # Alert generation and filtering
-data/
-monitor_results.json  # Stored health check results
+- api-health-monitor/
+- monitor.py              #Main entry point
+- config.py               #Configuration settings
+- requirements.txt        #Python dependencies
+- src/
+    - checker.py         #API health check logic
+    - storage.py         #Result persistence
+    - utils.py           #Display and formatting utilities
+       - alerting.py        #Alert generation and filtering
+- data/
+- monitor_results.json  #Stored health check results
 
 ## Quick start
 
