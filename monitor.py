@@ -13,11 +13,14 @@ def run_single_check():
     results = check_multiple_endpoints(ENDPOINTS)
     for result in results:
         print_result(result)
-    print_summary(results)
+    alerts = check_and_alert(results)
     save_results(results, filename=RESULTS_FILE)
 
     print_summary(results)
-    print (f"\n✅ Single health check complete at {datetime.now().isoformat()}")
+    if alerts:
+        print(f"\n  {len(alerts)} alert(s) generated")
+    
+    print(f"\n✅ Single health check complete at {datetime.now().isoformat()}")
 
 
 def run_countious_monitoring(interval_seconds=CHECK_INTERVAL_SECONDS):
@@ -28,9 +31,12 @@ def run_countious_monitoring(interval_seconds=CHECK_INTERVAL_SECONDS):
             results = check_multiple_endpoints(ENDPOINTS)
             for result in results:
                 print_result(result)
-            print_summary(results)
+            alerts = check_and_alert(results)
             save_results(results, filename=RESULTS_FILE)
-            print(f"⏲️  Waiting for {interval_seconds} seconds before next check...")
+            if alerts:
+                print(f"\n  {len(alerts)} alert(s) generated")
+            
+            print(f"\n Next check in {interval_seconds} seconds...\n")
             time.sleep(interval_seconds)
     except KeyboardInterrupt:
         print("\n🛑 Monitoring stopped by user.")

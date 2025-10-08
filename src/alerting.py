@@ -1,5 +1,4 @@
 from datetime import datetime
-from unittest import result
 from src.utils import get_status_emoji
 
 def should_alert(result):
@@ -8,7 +7,7 @@ def should_alert(result):
     return result['health_status'] in critical_statuses
 
 def generate_alert_message(result):
-    #Generate a formatted alert message based on the health check result.
+    #Generate a human message based on the health check result.
     emoji = get_status_emoji(result['health_status'])
     timestamp = result['timestamp']
     url = result['url']
@@ -29,10 +28,13 @@ Action Required: Investigate immediately
 
 
 def check_and_alert(results):
-    #Check results and print alert messages for critical issues.
+    #Check results and print alert messages for failures
     alerts = []
     for result in results:
         if should_alert(result):
             alert_message = generate_alert_message(result)
             alerts.append(alert_message)
+            print("\n" + "="*60)
+            print(alert_message)
+            print("="*60 + "\n")
     return alerts   
