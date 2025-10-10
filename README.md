@@ -64,7 +64,9 @@ docker build -t api-health-monitor .
 ```
 
 ##  Example Output
-🔍 Starting single health check...
+
+```bash
+🔍 Starting single health check...```
 ✅ https://api.github.com/status - Status: 200, Response Time: 0.13s, Health: healthy
 ❌ https://httpbin.org/status/500 - Status: 500, Response Time: 3.7s, Health: server_error
 ============================================================
@@ -72,6 +74,7 @@ docker build -t api-health-monitor .
 Endpoint: https://httpbin.org/status/500
 Status: SERVER_ERROR
 Action Required: Investigate immediately
+```
 
 ## Next Steps
 
