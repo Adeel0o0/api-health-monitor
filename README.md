@@ -53,3 +53,9 @@ cd api-health-monitor
 
 # Install dependencies
 pip install -r requirements.txt
+
+## 🐳 Docker Deployment
+
+### Build the Docker Image
+```bash
+docker build -t api-health-monitor .
