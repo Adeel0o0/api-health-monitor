@@ -23,7 +23,7 @@ A python-based API health monitoring tool that checks endpoint availability, tra
 - **Language:** Python 3.x
 - **Libraries:** requests
 - **Storage:** JSON (future: Azure Blob Storage)
-- **Future Deployment:** Azure Functions, Docker
+- **Future Deployment:** Azure Functions
 
 ## Project Structure
 
@@ -31,6 +31,7 @@ A python-based API health monitoring tool that checks endpoint availability, tra
 - monitor.py              #Main entry point
 - config.py               #Configuration settings
 - requirements.txt        #Python dependencies
+- dockerfile 
 - src/
     - checker.py         #API health check logic
     - storage.py         #Result persistence
@@ -60,6 +61,7 @@ pip install -r requirements.txt
 ```bash
 docker build -t api-health-monitor .
 
+```
 
 ##  Example Output
 🔍 Starting single health check...
@@ -71,3 +73,10 @@ Endpoint: https://httpbin.org/status/500
 Status: SERVER_ERROR
 Action Required: Investigate immediately
 
+## Next Steps
+
+- [ ] Add Azure OpenAI integration for intelligent error analysis
+- [ ] Deploy to Azure Functions (serverless)
+- [ ] Integrate with Azure Monitor and Application Insights
+- [ ] Add email/Slack notifications for alerts
+- [ ] Web dashboard for visualization
