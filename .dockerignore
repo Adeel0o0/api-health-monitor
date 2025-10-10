@@ -1,0 +1,12 @@
+# Don't copy these into the Docker image
+data/
+__pycache__/
+*.pyc
+.git
+.gitignore
+README.md
+.DS_Store
+*.swp
+venv/
+env/
+
